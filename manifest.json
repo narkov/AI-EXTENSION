@@ -1,0 +1,11 @@
+{
+    "name": "AI-IMAGE-CREATOR",
+    "version": "1.0.0",
+    "description": "generate high quality text-to-image AI pics",
+    "manifest_version": 3,
+    "author": "Myroslav Vozniak",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "AI-IMAGES"
+    }
+}
