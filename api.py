@@ -5,8 +5,8 @@ import json
 
 app = Flask(__name__)
 
-PROMPT = "An eco-friendly computer from the 90s in the style of vaporwave"
-openai.api_key = "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"
+PROMPT = "YOUR PROMPT HERE"
+openai.api_key = "DALL-E API KEY"
 response = openai.Image.create(
     prompt=PROMPT,
     n=1,
@@ -18,7 +18,7 @@ r = requests.post(
     data={
         'image': response["data"][0]["url"],
     },
-    headers={'api-key': '904db71b-6abd-4863-a76b-5056433d917b'}
+    headers={'api-key': 'WAIFU2X API KEY'}
 )
 #print(r.json())
 if r.status_code == 200:
