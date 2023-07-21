@@ -5,7 +5,7 @@
     "manifest_version": 3,
     "author": "Myroslav Vozniak",
     "action":{
-        "default_popup": "index.html",
+        "default_popup": "main.html",
         "default_title": "AI-IMAGES"
     }
 }
