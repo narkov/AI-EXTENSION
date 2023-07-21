@@ -1,18 +1,23 @@
 import openai
 import requests
-from flask import Flask, render_template
+from flask import Flask, jsonify, request, render_template
+from flask_cors import CORS, cross_origin
 import json
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/')
 def main():
     return "AI Image Generator"
 
-@app.route('/api/data', methods=['POST'])
+@app.route('/getimage', methods=['POST'])
+@cross_origin()
 def process_data():
-    PROMPT = "An eco-friendly computer from the 90s in the style of vaporwave"
-    openai.api_key = "YOUR DALL-E API KEY"
+    #PROMPT = request.form['prompt']
+    PROMPT = "darth vader"
+    openai.api_key = "YOUR API KEY"
     response = openai.Image.create(
         prompt=PROMPT,
         n=1,
@@ -24,20 +29,17 @@ def process_data():
         data={
             'image': response["data"][0]["url"],
         },
-        headers={'api-key': 'YOUR WAIFU2X API KEY'}
+        headers={'api-key': 'YOUR WAIFU2X KEY'}
     )
-    #print(r.json())
+    
     if r.status_code == 200:
         data = r.json()
         url = data["output_url"]
         print(url)
     else:
         print("API request failed")
-    
-    data = request.json
-    # Perform backend processing with the received data
-    result = url
-    return jsonify({'result': result})
+
+    return jsonify({'result': url})
 
 if __name__ == '__main__':
     app.run()
