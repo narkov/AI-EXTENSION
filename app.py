@@ -17,8 +17,6 @@ def main():
 def process_data():
     data = request.get_json()
     PROMPT = data['prompt']
-    return PROMPT
-    exit()
     
     openai.api_key = "YOUR API KEY"
     response = openai.Image.create(
