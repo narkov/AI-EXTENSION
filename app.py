@@ -45,4 +45,4 @@ def process_data():
     return jsonify({'result': url})
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
