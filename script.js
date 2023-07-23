@@ -1,7 +1,7 @@
 document.getElementById('submit').addEventListener('click', function() {
     var inputValue = document.getElementById('input').value;
     var data = { 'prompt': inputValue };
-    fetch('https://fathomless-escarpment-69401-466c2059570f.herokuapp.com/getimage', {
+    fetch('https://ai-extension-adcw.onrender.com/getimage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
