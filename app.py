@@ -17,29 +17,30 @@ def main():
 def process_data():
     data = request.get_json()
     PROMPT = data['prompt']
-    
-    openai.api_key = "YOUR API KEY"
-    response = openai.Image.create(
-        prompt=PROMPT,
-        n=1,
-        size="1024x1024",
-    )
 
-    r = requests.post(
-        "https://api.deepai.org/api/waifu2x",
-        data={
-            'image': response["data"][0]["url"],
-        },
-        headers={'api-key': 'YOUR WAIFU2X KEY'}
-    )
-    
-    if r.status_code == 200:
-        data = r.json()
-        url = data["output_url"]
-        print(url)
-    else:
-        print("API request failed")
+#    openai.api_key = "YOUR API KEY"
+#    response = openai.Image.create(
+#        prompt=PROMPT,
+#        n=1,
+#        size="1024x1024",
+#    )
 
+#    r = requests.post(
+#        "https://api.deepai.org/api/waifu2x",
+#        data={
+#            'image': response["data"][0]["url"],
+#        },
+#        headers={'api-key': 'YOUR WAIFU2X KEY'}
+#    )
+    
+#    if r.status_code == 200:
+#        data = r.json()
+#        url = data["output_url"]
+#        print(url)
+#    else:
+#        print("API request failed")
+
+    url = PROMPT
     return jsonify({'result': url})
 
 if __name__ == '__main__':
